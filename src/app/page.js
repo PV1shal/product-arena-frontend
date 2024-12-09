@@ -1,11 +1,24 @@
+"use client";
+
 import HomePageCard from "./components/home_page_vs_card";
+import { FaChevronDown } from "react-icons/fa";
 
 export default function Home() {
+  const scrollToComparisons = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <div className="min-h-screen w-screen flex flex-col items-center">
-      <div className="bg-black w-full flex flex-col items-center text-white text-9xl text-center pt-28 pb-28">
-        <h1 className="font-manbow">Product Arena</h1>
-        <div className="bg-[#D9D9D9] h-16 w-1/2 flex items-center rounded-lg mt-8">
+      <div className="bg-[#0e0e0e] w-screen h-[75vh] flex flex-col items-center justify-center text-white text-9xl relative">
+        <h1 className="font-manbow_solid">Product Arena</h1>
+        <h1 className="font-lexend text-lg text-white mt-4 max-w-2xl text-center">
+          Your ultimate comparison platform that analyzes and compare product specifications with the power of AI.
+        </h1>
+        <div className="bg-white h-16 w-1/2 flex items-center rounded-lg mt-8">
           <input
             className="w-1/2 h-full bg-transparent rounded-tl-full rounded-bl-full border-r-2 border-[#B5B5B5] px-5 placeholder-gray-500 text-black focus:outline-none focus:ring-0 text-2xl"
             placeholder="Enter product link 1"
@@ -15,7 +28,20 @@ export default function Home() {
             placeholder="Enter product link 2"
           />
         </div>
+        
+        <button 
+          onClick={scrollToComparisons}
+          className="absolute bottom-8 animate-bounce cursor-pointer"
+          aria-label="Scroll to comparisons"
+        >
+          <FaChevronDown className="text-white text-4xl" />
+        </button>
       </div>
+
+      <h1 className="text-3xl font-bold mt-8">
+        Quick Comparisons
+      </h1>
+
       <HomePageCard
         itemName1={"Samsung Galaxy S24 Ultra"}
         imgLink1={"https://image-us.samsung.com/SamsungUS/home/smartphones/galaxy-s24-ultra/gallery-images/FNL_Gallery_Ultra_800x600_Slide_Non_Exclusive_Colors_2.jpg"}

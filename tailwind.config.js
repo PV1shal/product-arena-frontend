@@ -12,7 +12,8 @@ module.exports = {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        manbow: ['var(--font-manbow)'],
+        manbow_lines: ['var(--font-manbow_lines)'],
+        manbow_solid: ['var(--font-manbow_solid)']
       }
     },
   },

@@ -2,9 +2,15 @@ import localFont from "next/font/local";
 import "./globals.css";
 import TopNavBar from "./components/top_nav";
 
-const manbow = localFont({
-  src: "./fonts/manbow.otf",
-  variable: "--font-manbow",
+const manbow_lines = localFont({
+  src: "./fonts/manbow_lines.otf",
+  variable: "--font-manbow_lines",
+  weight: "100 900",
+})
+
+const manbow_solid = localFont({
+  src: "./fonts/manbow_solid.otf",
+  variable: "--font-manbow_solid",
   weight: "100 900",
 })
 
@@ -17,7 +23,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${manbow.variable} antialiased`}
+        className={`${manbow_lines.variable} ${manbow_solid.variable} antialiased`}
       >
         <TopNavBar />
         {children}
