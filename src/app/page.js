@@ -3,16 +3,18 @@ import HomePageCard from "./components/home_page_vs_card";
 export default function Home() {
   return (
     <div className="min-h-screen w-screen flex flex-col items-center">
-      <div className="font-manbow text-9xl text-center m-28">Product Arena</div>
-      <div className="bg-[#D9D9D9] h-16 w-1/2 flex items-center rounded-lg">
-        <input
-          className="w-1/2 h-full bg-transparent rounded-tl-full rounded-bl-full border-r-2 border-[#B5B5B5] px-5 placeholder-gray-500 text-black focus:outline-none focus:ring-0 text-2xl"
-          placeholder="Enter product link 1"
-        />
-        <input
-          className="w-1/2 h-full bg-transparent rounded-tr-full rounded-br-full border-l-2 border-[#B5B5B5] px-5 placeholder-gray-500 text-black focus:outline-none focus:ring-0 text-2xl"
-          placeholder="Enter product link 2"
-        />
+      <div className="bg-black w-full flex flex-col items-center text-white text-9xl text-center pt-28 pb-28">
+        <h1 className="font-manbow">Product Arena</h1>
+        <div className="bg-[#D9D9D9] h-16 w-1/2 flex items-center rounded-lg mt-8">
+          <input
+            className="w-1/2 h-full bg-transparent rounded-tl-full rounded-bl-full border-r-2 border-[#B5B5B5] px-5 placeholder-gray-500 text-black focus:outline-none focus:ring-0 text-2xl"
+            placeholder="Enter product link 1"
+          />
+          <input
+            className="w-1/2 h-full bg-transparent rounded-tr-full rounded-br-full border-l-2 border-[#B5B5B5] px-5 placeholder-gray-500 text-black focus:outline-none focus:ring-0 text-2xl"
+            placeholder="Enter product link 2"
+          />
+        </div>
       </div>
       <HomePageCard
         itemName1={"Samsung Galaxy S24 Ultra"}
@@ -33,6 +35,7 @@ export default function Home() {
       <HomePageCard
         itemName1={"Shure SRH840A"}
         imgLink1={"https://m.media-amazon.com/images/I/71gG4pvy-VL._AC_SL1500_.jpg"}
+        link1={"https://www.amazon.com/Shure-Studio-Headphones-Black-SRH840A/dp/B00OP93VI0"}
         itemName2={"Sennheiser Consumer Audio HD 400S"}
         imgLink2={"https://m.media-amazon.com/images/I/51VTo9w8mxS._AC_SL1312_.jpg"}
         link2={"https://www.amazon.com/Sennheiser-HD-400S-One-Button-Detachable/dp/B07NFQ9FQQ/?_encoding=UTF8&pd_rd_w=hgfJK&content-id=amzn1.sym.72406710-d583-4731-97f5-a0a5f3b1f83e&pf_rd_p=72406710-d583-4731-97f5-a0a5f3b1f83e&pf_rd_r=F6PQZHPE4EG7V9V6WSF7&pd_rd_wg=fEGld&pd_rd_r=f045c44f-e684-4e08-8a25-ce98b76074e9&ref_=pd_hp_d_atf_dealz_cs"}

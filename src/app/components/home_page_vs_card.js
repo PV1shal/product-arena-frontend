@@ -1,11 +1,17 @@
 "use client";
 
 import Image from "next/image";
+import BackenHTTPService from "../services/BackenHTTPService";
 
 const HomePageCard = ({ itemName1, imgLink1, link1, itemName2, imgLink2, link2 }) => {
 
-  const onClickEvent = () => {
-    console.log("Clicked", link1, link2);
+  const onClickEvent = async () => {
+    const reponse = await BackenHTTPService.getProductComparison({
+        itemLink1: link1,
+        itemLink2: link2
+    }).then((res) => {
+        console.log(res.data);
+    })
   };
 
   return (
