@@ -1,6 +1,9 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import TopNavBar from "./components/top_nav";
+import { Suspense } from "react";
+import Loading from "./loading";
+import { ComparisonProvider } from "./comparison/context/CompareContext";
 
 const manbow_lines = localFont({
   src: "./fonts/manbow_lines.otf",
@@ -27,7 +30,11 @@ export default function RootLayout({ children }) {
       >
         <TopNavBar />
         <main>
-          {children}
+          <ComparisonProvider>
+            <Suspense fallback={<Loading />}>
+              {children}
+            </Suspense>
+          </ComparisonProvider>
         </main>
       </body>
     </html>

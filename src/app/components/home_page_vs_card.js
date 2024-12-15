@@ -1,17 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import BackenHTTPService from "../services/BackenHTTPService";
 
-const HomePageCard = ({ itemName1, imgLink1, link1, itemName2, imgLink2, link2 }) => {
-
+const HomePageCard = ({ itemName1, imgLink1, link1, itemName2, imgLink2, link2, onCompare }) => {
+  
   const onClickEvent = async () => {
-    const reponse = await BackenHTTPService.getProductComparison({
-        itemLink1: link1,
-        itemLink2: link2
-    }).then((res) => {
-        console.log(res.data);
-    })
+    try {
+      await onCompare(link1, link2);
+    } catch (error) {
+      console.error("Error in comparison:", error);
+    }
   };
 
   return (

@@ -1,13 +1,16 @@
+"use client";
+
 import { CiCirclePlus } from "react-icons/ci";
 
-const AddNewProductCard = () => {
+const AddNewProductCard = ({ openModal }) => {
   return (
     <div
       className="
         h-screen w-1/4 bg-white border-2 border-blue-300 
         rounded-lg flex flex-col justify-center 
         items-center hover:scale-[1.01] hover:shadow-xl 
-        hover:z-10 transition-all duration-300"
+        hover:z-10 transition-all duration-300 cursor-pointer"
+        onClick={openModal}
     >
       <CiCirclePlus className="text-6xl text-blue-300" />
     </div>

@@ -8,8 +8,17 @@ function BackendHttpServices() {
         });
     }
 
+    function getProductComparisonNewApp({ prev_products, new_product }) {
+        console.log(prev_products, new_product)
+        return axios.post("http://localhost:8000/compareWithNew", {
+            prev_products: prev_products,
+            new_product: new_product
+        });
+    }    
+
     return {
         getProductComparison,
+        getProductComparisonNewApp
     };
 }
 
