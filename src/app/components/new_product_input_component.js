@@ -3,16 +3,18 @@
 import { useState } from "react";
 import { IoIosClose } from "react-icons/io";
 import BackenHTTPService from "../services/BackenHTTPService";
+import { useComparisonContext } from "../comparison/context/CompareContext";
 
-const NewProductInput = ({ open, setOpen, prev_products, setNewComparisonData, setIsLoading }) => {
+const NewProductInput = ({ open, setOpen, setNewComparisonData, setIsLoading }) => {
     const [newLink, setNewLink] = useState("");
+    const { comparisonData } = useComparisonContext();
     
     if (!open) return null;
 
     const onAdd = async () => {
         setIsLoading(true);
         await BackenHTTPService.getProductComparisonNewApp({
-            prev_products: prev_products,
+            prev_products: comparisonData,
             new_product: newLink
         }).then((res) => {
             console.log(res.data);

@@ -27,11 +27,11 @@ export default function Comparison() {
   return (
     <>
       {isLoading && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-[9999] flex items-center justify-center">
           <Loading />
         </div>
       )}
-      <div className="w-screen flex flex-row items-start justify-center gap-4 p-8">
+      <div className="w-screen flex flex-row items-start overflow-scroll justify-center gap-4 p-8">
         {comparisonData.map((product, index) => (
           <CompareCard key={index} productInfo={product} rank={index} />
         ))}
