@@ -19,7 +19,7 @@ export default function Home() {
 
   useEffect(() => {
     BackenHTTPService.bootBackend();
-  }, [])
+  }, []);
 
   const scrollToComparisons = () => {
     window.scrollTo({
@@ -33,14 +33,17 @@ export default function Home() {
     await BackenHTTPService.getProductComparison({
       itemLink1,
       itemLink2,
-    }).then((response) => {
-      setComparisonData(response.data);
-      router.push("/comparison");
-    }).catch((error) => {
-      setIsError(true);
-    }).finally(() => {
-      setIsLoading(false);
     })
+      .then((response) => {
+        setComparisonData(response.data);
+        router.push("/comparison");
+      })
+      .catch((error) => {
+        setIsError(true);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   const handleFormSubmit = (e) => {
@@ -52,9 +55,7 @@ export default function Home() {
 
   return (
     <>
-      {isError && (
-        <ErrorMessage isOpen={isError} setIsOpen={setIsError} />
-      )}
+      {isError && <ErrorMessage isOpen={isError} setIsOpen={setIsError} />}
       {isLoading && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
           <Loading />
@@ -64,8 +65,8 @@ export default function Home() {
         <div className="bg-[#0e0e0e] w-screen h-[75vh] flex flex-col items-center justify-center text-white text-9xl relative">
           <h1 className="font-manbow_solid">Product Arena</h1>
           <h1 className="font-lexend text-lg text-white mt-4 max-w-2xl text-center">
-            Your ultimate comparison platform that analyzes and compare product
-            specifications with the power of AI.
+            Your ultimate death battle platform that analyzes and compare any
+            products with the power of AI.
           </h1>
           <div className="bg-white h-16 w-1/2 flex items-center rounded-lg mt-8">
             <input
@@ -143,6 +144,23 @@ export default function Home() {
           }
           link2={
             "https://www.amazon.com/Sennheiser-HD-400S-One-Button-Detachable/dp/B07NFQ9FQQ/?_encoding=UTF8&pd_rd_w=hgfJK&content-id=amzn1.sym.72406710-d583-4731-97f5-a0a5f3b1f83e&pf_rd_p=72406710-d583-4731-97f5-a0a5f3b1f83e&pf_rd_r=F6PQZHPE4EG7V9V6WSF7&pd_rd_wg=fEGld&pd_rd_r=f045c44f-e684-4e08-8a25-ce98b76074e9&ref_=pd_hp_d_atf_dealz_cs"
+          }
+          onCompare={(link1, link2) => handleCompare(link1, link2)}
+        />
+        <HomePageCard
+          itemName1={"Shark DETECT"}
+          imgLink1={
+            "https://m.media-amazon.com/images/I/71AA3XrGLFL._AC_SL1500_.jpg"
+          }
+          link1={
+            "https://www.amazon.com/Shark-Self-Cleaning-Anti-Allergen-Neutralizer-LA492/dp/B0DDZ2FB8F/?_encoding=UTF8&pd_rd_w=Wc70E&content-id=amzn1.sym.91010810-3b5c-4e0a-8e46-6693d2ab1154&pf_rd_p=91010810-3b5c-4e0a-8e46-6693d2ab1154&pf_rd_r=R80K9TX77ZFTSZDC6EY4&pd_rd_wg=ZXbc8&pd_rd_r=87409683-9074-4079-b7ba-2e2b79277536&ref_=pd_hp_d_btf_fabric_cml_prism_kp&th=1"
+          }
+          itemName2={"Bissell 2252"}
+          imgLink2={
+            "https://m.media-amazon.com/images/I/71pzkmU3PuL._AC_SL1500_.jpg"
+          }
+          link2={
+            "https://www.amazon.com/BISSELL-Cleanview-Upright-Bagless-2252/dp/B07F6N3RT6/?_encoding=UTF8&pd_rd_w=Wc70E&content-id=amzn1.sym.91010810-3b5c-4e0a-8e46-6693d2ab1154&pf_rd_p=91010810-3b5c-4e0a-8e46-6693d2ab1154&pf_rd_r=R80K9TX77ZFTSZDC6EY4&pd_rd_wg=ZXbc8&pd_rd_r=87409683-9074-4079-b7ba-2e2b79277536&ref_=pd_hp_d_btf_fabric_cml_prism_kp&th=1"
           }
           onCompare={(link1, link2) => handleCompare(link1, link2)}
         />
