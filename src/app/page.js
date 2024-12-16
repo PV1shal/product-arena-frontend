@@ -7,6 +7,7 @@ import HomePageCard from "./components/home_page_vs_card";
 import Loading from "./loading";
 import BackenHTTPService from "./services/BackenHTTPService";
 import { useComparisonContext } from "./comparison/context/CompareContext";
+import ErrorMessage from "./components/error_message";
 
 export default function Home() {
   const router = useRouter();
@@ -14,6 +15,7 @@ export default function Home() {
   const [link2, setLink2] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { setComparisonData } = useComparisonContext();
+  const [isError, setIsError] = useState(true);
 
   const scrollToComparisons = () => {
     window.scrollTo({
@@ -24,20 +26,17 @@ export default function Home() {
 
   const handleCompare = async (itemLink1, itemLink2) => {
     setIsLoading(true);
-    try {
-      await BackenHTTPService.getProductComparison({
-        itemLink1,
-        itemLink2,
-      }).then((response) => {
-        setComparisonData(response.data);
-        router.push("/comparison");
-      });
-    } catch (error) {
-      console.error("Error comparing products:", error);
-    } finally {
+    await BackenHTTPService.getProductComparison({
+      itemLink1,
+      itemLink2,
+    }).then((response) => {
+      setComparisonData(response.data);
+      router.push("/comparison");
+    }).catch((error) => {
+      setIsError(true);
+    }).finally(() => {
       setIsLoading(false);
-      console.log("wasd");
-    }
+    })
   };
 
   const handleFormSubmit = (e) => {
@@ -49,6 +48,9 @@ export default function Home() {
 
   return (
     <>
+      {isError && (
+        <ErrorMessage isOpen={isError} setIsOpen={setIsError} />
+      )}
       {isLoading && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
           <Loading />
