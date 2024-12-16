@@ -15,6 +15,26 @@ const CompareCard = ({ productInfo, rank }) => {
     return newColor;
   };
 
+  const renderValue = (value) => {
+    if (value === null || value === undefined) {
+      return 'N/A';
+    }
+    if (typeof value === 'string' || typeof value === 'number') {
+      return value;
+    } else if (Array.isArray(value)) {
+      return value.map((item, index) => (
+        <div key={index}>{renderValue(item)}</div>
+      ));
+    } else if (typeof value === 'object') {
+      return Object.entries(value).map(([key, val]) => (
+        <div key={key}>
+          <strong>{key}:</strong> {renderValue(val)}
+        </div>
+      ));
+    }
+    return JSON.stringify(value);
+  };
+  
   return (
     <div className="w-1/4 bg-white rounded-xl shadow-lg p-4 transition-all duration-300 h-[99%] hover:scale-[1.01] hover:shadow-xl hover:z-10">
       <div className="w-full mb-4">
@@ -32,22 +52,22 @@ const CompareCard = ({ productInfo, rank }) => {
           <CompareValueCard
             key={`spec-${index}`}
             name={specification.name}
-            value={specification.value}
+            value={renderValue(specification.value)}
             color={getRandomColor()}
           />
         ))}
 
-        <div className="w-full mb-4">
+        {/* <div className="w-full mb-4">
           <h1 className="text-lg font-semibold text-center mb-2">
             Additional Specification
           </h1>
-        </div>
+        </div> */}
 
         {productInfo.additional_specifications.map((specification, index) => (
           <CompareValueCard
             key={`add-spec-${index}`}
             name={specification.name}
-            value={specification.value}
+            value={renderValue(specification.value)}
             color={getRandomColor()}
           />
         ))}
