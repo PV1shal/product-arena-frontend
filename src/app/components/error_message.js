@@ -4,7 +4,7 @@ const ErrorMessage = ({ isOpen, setIsOpen }) => {
 
   return (
     <div
-      className={`left-0 right-0 bg-red-500 text-white p-4 transition-transform duration-300 ease-in-out ${
+      className={`fixed top-16 left-0 right-0 z-50 bg-red-500 text-white p-4 transition-transform duration-300 ease-in-out ${
         isOpen ? "translate-y-0" : "-translate-y-full"
       }`}
     >
