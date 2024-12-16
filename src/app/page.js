@@ -15,7 +15,7 @@ export default function Home() {
   const [link2, setLink2] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { setComparisonData } = useComparisonContext();
-  const [isError, setIsError] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   const scrollToComparisons = () => {
     window.scrollTo({
