@@ -7,12 +7,14 @@ import CompareCard from "../components/compare_card";
 import NewProductInput from "../components/new_product_input_component";
 import { useComparisonContext } from "./context/CompareContext";
 import Loading from "../loading";
+import ErrorMessage from "../components/error_message";
 
 export default function Comparison() {
   const router = useRouter();
   const { comparisonData, setComparisonData } = useComparisonContext();
   const [newProductModal, setNewProductModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     if (!comparisonData || comparisonData.length === 0) {
@@ -26,6 +28,9 @@ export default function Comparison() {
 
   return (
     <>
+      {isError && (
+        <ErrorMessage isOpen={isError} setIsOpen={setIsError} />
+      )}
       {isLoading && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-[9999] flex items-center justify-center">
           <Loading />
@@ -43,6 +48,7 @@ export default function Comparison() {
           prev_products={comparisonData}
           setNewComparisonData={setComparisonData}
           setIsLoading={setIsLoading}
+          setIsError={setIsError}
         />
       </div>
     </>

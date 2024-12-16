@@ -5,7 +5,7 @@ import { IoIosClose } from "react-icons/io";
 import BackenHTTPService from "../services/BackenHTTPService";
 import { useComparisonContext } from "../comparison/context/CompareContext";
 
-const NewProductInput = ({ open, setOpen, setNewComparisonData, setIsLoading }) => {
+const NewProductInput = ({ open, setOpen, setNewComparisonData, setIsLoading, setIsError }) => {
     const [newLink, setNewLink] = useState("");
     const { comparisonData } = useComparisonContext();
     
@@ -17,11 +17,15 @@ const NewProductInput = ({ open, setOpen, setNewComparisonData, setIsLoading }) 
             prev_products: comparisonData,
             new_product: newLink
         }).then((res) => {
-            console.log(res.data);
+            // console.log(res.data);
             setNewComparisonData(prevData => [...prevData, res.data]);
+        }).catch((error) => {
+            console.log(error);
+            setIsError(true);
+        }).finally(() => {
             setOpen(false);
             setIsLoading(false);
-        });
+        })
     }
     
     return (
