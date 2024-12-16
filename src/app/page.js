@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaChevronDown, FaArrowRight } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import HomePageCard from "./components/home_page_vs_card";
@@ -16,6 +16,10 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const { setComparisonData } = useComparisonContext();
   const [isError, setIsError] = useState(false);
+
+  useEffect(() => {
+    BackenHTTPService.bootBackend();
+  }, [])
 
   const scrollToComparisons = () => {
     window.scrollTo({

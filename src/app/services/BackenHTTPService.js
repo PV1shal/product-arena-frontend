@@ -1,6 +1,11 @@
 import axios from "axios";
 
 function BackendHttpServices() {
+
+    function bootBackend() {
+        return axios.get(process.env.NEXT_PUBLIC_BE_URI);
+    }
+
     function getProductComparison({ itemLink1, itemLink2 }) {
         console.log(itemLink1, itemLink2)
         return axios.post(process.env.NEXT_PUBLIC_BE_URI_COMPARE, {
@@ -17,8 +22,9 @@ function BackendHttpServices() {
     }    
 
     return {
+        bootBackend,
         getProductComparison,
-        getProductComparisonNewApp
+        getProductComparisonNewApp,
     };
 }
 
