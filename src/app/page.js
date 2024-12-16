@@ -118,14 +118,14 @@ export default function Home() {
             "https://m.media-amazon.com/images/I/816CrccBvbL._AC_SL1500_.jpg"
           }
           link1={
-            "https://www.amazon.com/gp/product/B0DHJ8B7TP?tag=rtings-mn-r-amazon-20&ie=UTF8&th=1"
+            "https://www.amazon.com/SAMSUNG-49-inch-Odyssey-FreeSync-LC49G95TSSNXZA/dp/B088HH6LW5"
           }
           itemName2={"MSI MPG 271QRX QD-OLED"}
           imgLink2={
             "https://m.media-amazon.com/images/I/81h0w75BgqL._AC_SL1500_.jpg"
           }
           link2={
-            "https://www.amazon.com/gp/product/B0CTS1RQ6Y?tag=rtings-mn-r-out-of-stock-20&ie=UTF8"
+            "https://www.amazon.com/MSI-MPG-271QRX-QD-OLED-response/dp/B0CTS1RQ6Y"
           }
           onCompare={(link1, link2) => handleCompare(link1, link2)}
         />
