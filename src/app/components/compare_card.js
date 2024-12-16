@@ -36,7 +36,7 @@ const CompareCard = ({ productInfo, rank }) => {
   };
   
   return (
-    <div className="w-1/4 bg-white rounded-xl shadow-lg p-4 transition-all duration-300 h-[99%] hover:scale-[1.01] hover:shadow-xl hover:z-10">
+    <div className="w-1/4 bg-white rounded-xl shadow-lg p-4 transition-all duration-300 h-[99%] hover:scale-[1.01] hover:shadow-2xl hover:z-10">
       <div className="w-full mb-4">
         <h1 className="text-xl font-bold text-center mb-2">
           {productInfo.product_name} 
