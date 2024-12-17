@@ -62,37 +62,50 @@ export default function Home() {
         </div>
       )}
       <div className="min-h-screen w-screen flex flex-col items-center">
-        <div className="bg-[#0e0e0e] w-screen h-[75vh] flex flex-col items-center justify-center text-white text-9xl relative">
-          <h1 className="font-manbow_solid">Product Arena</h1>
-          <h1 className="font-lexend text-lg text-white mt-4 max-w-2xl text-center">
-            Your ultimate death battle platform that analyzes and compare any
-            products with the power of AI.
+        <div className="bg-[#0e0e0e] w-screen min-h-[75vh] flex flex-col items-center justify-center text-white relative px-4 py-8">
+          <h1 className="font-manbow_solid text-4xl sm:text-6xl md:text-8xl lg:text-9xl text-center">
+            Product Arena
           </h1>
-          <div className="bg-white h-16 w-1/2 flex items-center rounded-lg mt-8">
-            <input
-              className="w-1/2 h-full bg-transparent rounded-tl-full rounded-bl-full border-r-2 border-[#B5B5B5] px-5 placeholder-gray-500 text-black focus:outline-none focus:ring-0 text-2xl"
-              placeholder="Enter product link 1"
-              onChange={(e) => {
-                setLink1(e.target.value);
-              }}
-            />
-            <input
-              className="w-1/2 h-full bg-transparent rounded-tr-full rounded-br-full border-l-2 border-[#B5B5B5] px-5 placeholder-gray-500 text-black focus:outline-none focus:ring-0 text-2xl"
-              placeholder="Enter product link 2"
-              onChange={(e) => {
-                setLink2(e.target.value);
-              }}
-            />
-            <button type="button" className="px-4" onClick={handleFormSubmit}>
-              <FaArrowRight className="text-gray-500 text-xl" />
+          <h2 className="font-lexend text-base sm:text-lg md:text-xl text-white mt-4 max-w-2xl text-center">
+            Your ultimate death battle platform that analyzes and compares any
+            products with the power of AI.
+          </h2>
+          <div className="bg-white w-full sm:w-[90%] md:w-[80%] lg:w-[60%] flex flex-col sm:flex-row items-center rounded-2xl mt-8 p-2 gap-2">
+            <div className="w-full sm:w-[45%] relative">
+              <input
+                className="w-full h-14 bg-gray-50 rounded-xl px-4 placeholder-gray-400 text-gray-700 text-base sm:text-lg focus:outline-none focus:ring-2 focus:ring-gray-200 transition-all"
+                placeholder="Enter product link 1"
+                onChange={(e) => {
+                  setLink1(e.target.value);
+                }}
+              />
+            </div>
+
+            <div className="w-full sm:w-[45%] relative">
+              <input
+                className="w-full h-14 bg-gray-50 rounded-xl px-4 placeholder-gray-400 text-gray-700 text-base sm:text-lg focus:outline-none focus:ring-2 focus:ring-gray-200 transition-all"
+                placeholder="Enter product link 2"
+                onChange={(e) => {
+                  setLink2(e.target.value);
+                }}
+              />
+            </div>
+
+            <button
+              type="button"
+              className="w-full sm:w-auto px-6 py-4 sm:py-3 bg-gray-100 hover:bg-gray-200 rounded-xl transition-colors"
+              onClick={handleFormSubmit}
+            >
+              <FaArrowRight className="text-gray-600 text-xl mx-auto" />
             </button>
           </div>
+
           <button
             onClick={scrollToComparisons}
-            className="absolute bottom-8 animate-bounce cursor-pointer"
+            className="absolute bottom-4 sm:bottom-8 animate-bounce cursor-pointer"
             aria-label="Scroll to comparisons"
           >
-            <FaChevronDown className="text-white text-4xl" />
+            <FaChevronDown className="text-white text-3xl sm:text-4xl" />
           </button>
         </div>
 
