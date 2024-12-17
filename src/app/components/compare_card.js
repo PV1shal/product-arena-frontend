@@ -1,8 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import CompareValueCard from "./compare_value_card";
+import ReviewCard from "./review_card";
 
 const CompareCard = ({ productInfo, rank }) => {
+  const [showAllReviews, setShowAllReviews] = useState(false);
   const colors = ["#fede67", "#b6f36a", "#ff9a62", "#c9a0ff", "#94dbfb"];
 
   let previousColor = null;
@@ -57,12 +60,6 @@ const CompareCard = ({ productInfo, rank }) => {
           />
         ))}
 
-        {/* <div className="w-full mb-4">
-          <h1 className="text-lg font-semibold text-center mb-2">
-            Additional Specification
-          </h1>
-        </div> */}
-
         {productInfo.additional_specifications.map((specification, index) => (
           <CompareValueCard
             key={`add-spec-${index}`}
@@ -71,6 +68,25 @@ const CompareCard = ({ productInfo, rank }) => {
             color={getRandomColor()}
           />
         ))}
+
+        <div className="w-full mb-4 mt-6">
+          <h1 className="text-xl font-bold text-center mb-2">Reviews</h1>
+        </div>
+
+        <div className="space-y-4">
+          {(showAllReviews ? productInfo.reviews : productInfo.reviews.slice(0, 2)).map((review, index) => (
+            <ReviewCard key={`review-${index}`} review={review} />
+          ))}
+        </div>
+
+        {productInfo.reviews.length > 2 && (
+          <button 
+            className="mt-4 text-blue-500 hover:underline"
+            onClick={() => setShowAllReviews(!showAllReviews)}
+          >
+            {showAllReviews ? "Show less" : `View all ${productInfo.reviews.length} reviews`}
+          </button>
+        )}
       </div>
     </div>
   );
