@@ -4,6 +4,7 @@ import TopNavBar from "./components/top_nav";
 import { Suspense } from "react";
 import Loading from "./loading";
 import { ComparisonProvider } from "./comparison/context/CompareContext";
+import { Analytics } from "@vercel/analytics/react"
 
 const manbow_lines = localFont({
   src: "./fonts/manbow_lines.otf",
