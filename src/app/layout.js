@@ -29,6 +29,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${manbow_lines.variable} ${manbow_solid.variable} antialiased pt-16`}
       >
+        <Analytics />
         <TopNavBar />
         <main>
           <ComparisonProvider>
