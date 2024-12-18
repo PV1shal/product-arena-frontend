@@ -74,7 +74,7 @@ export default function Home() {
             <div className="w-full sm:w-[45%] relative">
               <input
                 className="w-full h-14 bg-gray-50 rounded-xl px-4 placeholder-gray-400 text-gray-700 text-base sm:text-lg focus:outline-none focus:ring-2 focus:ring-gray-200 transition-all"
-                placeholder="Enter product link 1"
+                placeholder="Enter product 1"
                 onChange={(e) => {
                   setLink1(e.target.value);
                 }}
@@ -84,7 +84,7 @@ export default function Home() {
             <div className="w-full sm:w-[45%] relative">
               <input
                 className="w-full h-14 bg-gray-50 rounded-xl px-4 placeholder-gray-400 text-gray-700 text-base sm:text-lg focus:outline-none focus:ring-2 focus:ring-gray-200 transition-all"
-                placeholder="Enter product link 2"
+                placeholder="Enter product 2"
                 onChange={(e) => {
                   setLink2(e.target.value);
                 }}

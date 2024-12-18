@@ -47,7 +47,7 @@ const NewProductInput = ({ open, setOpen, setNewComparisonData, setIsLoading, se
                         flex flex-row justify-between 
                         p-3 text-lg font-bold border-black 
                         border-b-2">
-                    Enter Link to add new Product
+                    Enter new Product
                     <IoIosClose 
                         onClick={() => setOpen(false)}
                         className="text-4xl hover:cursor-pointer"
@@ -55,7 +55,7 @@ const NewProductInput = ({ open, setOpen, setNewComparisonData, setIsLoading, se
                 </div>
                 <div className="p-5">
                     <input
-                        placeholder="Enter link here"
+                        placeholder="Enter here"
                         className="border-black border-[1px] rounded-lg w-full p-3"
                         onChange={(e) => {
                             setNewLink(e.target.value);
